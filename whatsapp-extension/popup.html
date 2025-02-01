@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WhatsApp Analyzer</title>
+  <style>
+    :root {
+      --foreground-color: #000000;
+      --background-color: #fafafa;
+      --header-background: #ffffff45;
+      --primary-color: #1922FB;
+      --secondary-color: #FFC700;
+      --primary-color-light: #1922FB1a;
+      --secondary-color-light: #FFC70011;
+    }
+
+    .wrapper{
+      min-width: 350px;
+      min-height: 250px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+    }
+
+    h1 {
+      color: var(--primary-color);
+    }
+
+    button {
+      margin: 0 auto;
+      padding: 10px 25px;
+      color: white;
+      background-color: #2fce6b;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover{
+      transform: scale(1.05);
+      transition: .2s ease ;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid var(--secondary-color);
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <h1>WhatsApp Discussions</h1>
+      <button id="analyze">Analyser</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Total Discussions</th>
+            <th>Discussions Ouvertes</th>
+            <th>Discussions Non-Ouvertes</th>
+          </tr>
+        </thead>
+        <tbody id="results">
+          <tr>
+            <td colspan="3">Cliquez sur "Analyser"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>

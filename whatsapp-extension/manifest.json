@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp Discussions Analyzer",
+  "version": "1.0",
+  "description": "Analyse les discussions sur WhatsApp Web",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://web.whatsapp.com/"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
