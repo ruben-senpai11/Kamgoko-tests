@@ -10,7 +10,8 @@
 
 }
 
-.payments{
+.actions{
+  cursor: pointer;
 }
 
 .payment{

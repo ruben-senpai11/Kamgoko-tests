@@ -10,7 +10,7 @@
 
     // Analyze each conversation
     conversations.forEach(conversation => {
-      const unreadBadge = conversation.querySelector('._ahlk');
+      const unreadBadge = conversation.querySelector('[aria-label$="unread message"]');
       if (unreadBadge) {
         unopened++;
       } else {
