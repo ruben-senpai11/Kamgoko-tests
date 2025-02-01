@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WhatsApp Analyzer</title>
   <style>
     :root {
@@ -10,11 +12,9 @@
       --header-background: #ffffff45;
       --primary-color: #1922FB;
       --secondary-color: #FFC700;
-      --primary-color-light: #1922FB1a;
-      --secondary-color-light: #FFC70011;
     }
 
-    .wrapper{
+    .wrapper {
       min-width: 350px;
       min-height: 250px;
     }
@@ -32,19 +32,33 @@
       color: var(--primary-color);
     }
 
+    .buttons{
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+      /* justify-content: space-between; */
+    }
     button {
       margin: 0 auto;
       padding: 10px 25px;
       color: white;
-      background-color: #2fce6b;
       border: none;
-      border-radius: 7px;
+      border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
     }
-    button:hover{
+    button:hover {
       transform: scale(1.05);
-      transition: .2s ease ;
+      transition: .2s ease;
+    }
+
+    #analyze{
+      background-color: #2fce6b;
+    }
+    #exportCSV{
+      /* color: var(--secondary-color); */
+      background-color: var(--primary-color);
     }
 
     table {
@@ -71,7 +85,10 @@
   <div class="wrapper">
     <div class="container">
       <h1>WhatsApp Discussions</h1>
-      <button id="analyze">Analyser</button>
+      <div class="buttons">
+        <button id="analyze">Analyser</button>
+        <button id="exportCSV">Exporter CSV</button>
+      </div>
       <table>
         <thead>
           <tr>

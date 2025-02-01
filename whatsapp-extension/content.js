@@ -1,28 +1,28 @@
-// Sélectionne toutes les discussions
+// Prevent multiple executions by setting a unique flag
+///if (!window.__WHATSAPP_ANALYZER__) {  window.__WHATSAPP_ANALYZER__ = true;
 
-//alert('cliked')
+  (function analyzeConversations() {
+    // Select all conversations
+    const conversations = document.querySelectorAll('._ak8l');
+    let total = conversations.length;
+    let opened = 0;
+    let unopened = 0;
 
-const conversations = document.querySelectorAll('._ak8l');
+    // Analyze each conversation
+    conversations.forEach(conversation => {
+      const unreadBadge = conversation.querySelector('._ahlk');
+      if (unreadBadge) {
+        unopened++;
+      } else {
+        opened++;
+      }
+    });
 
-let total = conversations.length;
-let opened = 0;
-let unopened = 0;
-
-// Analyse chaque discussion
-conversations.forEach(conversation => {
-  const unreadBadge = conversation.querySelector('._ahlk');
-  if (unreadBadge) {
-    unopened++;
-  } else {
-    opened++;
-  }
-});
-
-console.log(`Total: ${total}, Ouvertes: ${opened}, Non-ouvertes: ${unopened}`);
-
-// Affiche les résultats
-chrome.runtime.sendMessage({
-  total: total,
-  opened: opened,
-  unopened: unopened
-});
+    // Send results to the popup
+    chrome.runtime.sendMessage({
+      total: total,
+      opened: opened,
+      unopened: unopened
+    });
+  })();
+//}
