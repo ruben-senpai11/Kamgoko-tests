@@ -3,8 +3,10 @@
   width: 266px;
   max-width: 266px;
   padding: 20px 0 20px 32px;
+  /* height: 100%; */
+  flex-grow: 1;
   /* position: absolute; */
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 .sidebar div{
@@ -12,7 +14,7 @@
 }
 
 .logo{
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 
 .sidebar h4 {
@@ -38,8 +40,6 @@
 
 .profile-settings{
   bottom: 0!important;
-  padding: 0!important;
-  margin: 0!important;
 }
 
 .svg{
@@ -47,4 +47,10 @@
 }
 .svg-gray{
   fill: var(--dark-gray);
+}
+
+@media screen and (max-width:1050px) {
+  .sidebar{
+    display: none!important;
+  }
 }

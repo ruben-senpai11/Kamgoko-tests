@@ -1,10 +1,10 @@
-
 :root {
   --foreground-color: #000000;
   --background-color: #fafafa;
   --gray: #EBF0F0;
   --dark-gray: #747A80;
 }
+
 [ data-theme="dark"] {
   --foreground-color: white;
   --background-color: #1a1a1a;
@@ -15,7 +15,7 @@
 /* Scroll Bar  */
 
 ::-webkit-scrollbar {
-  width: 5px!important;
+  width: 5px !important;
   padding: 0;
   margin: 0;
 }
@@ -37,7 +37,26 @@
   background: #EBF0F0;
 }
 
-body{
+body {
   color: var(--foreground-color);
   background-color: var(--background-color);
+}
+
+.gray {
+  color: var(--dark-gray);
+}
+
+.account{
+  max-width: 1440px;
+  padding: 0;
+  margin: 0 auto;
+  gap: 0;
+}
+
+@media screen and (max-width: 1440px) {
+  .account {}
+}
+
+hr{
+  margin: 7px 0 12px 0;
 }

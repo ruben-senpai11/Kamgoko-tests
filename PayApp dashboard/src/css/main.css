@@ -1,0 +1,27 @@
+.main, .account, .line{
+  padding: 30px 0 ;
+}
+.spacing{
+  padding: 0px 80px;
+}
+.account h1 {
+  font-size: 42px;
+  font-weight: 800;
+
+}
+
+.payments{
+}
+
+.payment{
+  width: 100%;
+  min-width: 500px;
+  gap: 100px;
+}
+.hidden{
+  color: var(--background-color);
+}
+
+.t-thin{
+  font-size: 12px;
+}

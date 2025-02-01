@@ -8,7 +8,7 @@ export default function Header() {
       <nav className="nav d-flex justify-content-between">
         <div className="title d-flex align-items-center justify-content-between gap-4 ">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#CFDBD5" stroke-opacity="0.7" stroke-linecap="square" />
+            <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#CFDBD5" strokeOpacity="0.7" strokeLinecap="square" />
             <path d="M22.5664 16.5547L21.5117 15.5L17.0117 20L21.5117 24.5L22.5664 23.4453L19.1211 20L22.5664 16.5547Z" fill="currentColor" />
           </svg>
           <p className="fw-bold ">Account Details</p>

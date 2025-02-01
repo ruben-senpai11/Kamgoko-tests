@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <>
-      <nav className="nav d-flex justify-content-between">
+      <nav className="footer nav d-flex justify-content-between">
         <div className="links d-flex align-items-center justify-content-between gap-4 ">
           <a href="#">Privacy Policy</a>
           <a href="#">License</a>

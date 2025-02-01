@@ -1,5 +1,9 @@
 .nav{
   padding: 20px 80px;
+  margin: 0!important;
+}
+.nav.footer{
+  /* padding-bottom: 0; */
 }
 p{
   margin: 0!important;
