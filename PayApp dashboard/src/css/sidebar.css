@@ -1,0 +1,50 @@
+.sidebar {
+  background-color: var(--gray);
+  width: 266px;
+  max-width: 266px;
+  padding: 20px 0 20px 32px;
+  /* position: absolute; */
+  overflow: scroll;
+}
+
+.sidebar div{
+  gap: 20px;
+}
+
+.logo{
+  padding-bottom: 20px;
+}
+
+.sidebar h4 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  padding-bottom: 10px;
+}
+
+.side-labels p{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  align-items: center;
+  padding: 15px 0  ;
+  margin: 0!important;
+} 
+
+.side-labels p.active{
+  font-weight: 700;
+  border-right: 3px solid #0052fe;
+}
+
+.profile-settings{
+  bottom: 0!important;
+  padding: 0!important;
+  margin: 0!important;
+}
+
+.svg{
+  fill: var(--foreground-color);
+}
+.svg-gray{
+  fill: var(--dark-gray);
+}

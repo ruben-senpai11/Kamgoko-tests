@@ -1,0 +1,12 @@
+.theme{
+  cursor: pointer!important;
+  position: relative;
+  transition: all .7s ease;
+}
+
+.svgLight{
+  padding: 12px 15px;
+  /* margin: 12px 15px; */
+  border: 1px solid #CFDBD5!important;
+  border-radius: 7px;
+}
