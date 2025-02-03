@@ -1,7 +1,7 @@
 :root {
   --foreground-color: #000000;
   --background-color: #fafafa;
-  --gray: #EBF0F0;
+  --gray: #EBF0F002;
   --dark-gray: #747A80;
 }
 
@@ -25,7 +25,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #EBF0F0;
+  background: var(--gray);
   border-radius: 6px;
 }
 
