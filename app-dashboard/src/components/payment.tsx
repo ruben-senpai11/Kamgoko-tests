@@ -1,15 +1,15 @@
-interface Props{
+interface Props {
   label: string,
   date: string,
   amount: string
 }
 
-export default function Payment({label, date, amount}:Props) {
+export default function Payment({ label, date, amount }: Props) {
 
   return (
     <>
 
-      <div className="payment d-flex align-items-center justify-content-between gap-4 w-100">
+      <div className="payment d-flex align-items-center justify-content-between gap-2 p w-100">
         <div className="d-flex align-items-center justify-content-between gap-3 ">
           <span><svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <circle cx="16" cy="16.5" r="16" fill="url(#pattern0_615_271)" />
@@ -21,13 +21,15 @@ export default function Payment({label, date, amount}:Props) {
             </defs>
           </svg>
           </span>
-          <span className="d-flex flex-column gap-1" >
-            {label}
+          <div className="">
+            <span className="d-flex flex-column gap-1" >
+              {label}
+            </span>
             <span className="gray t-thin">{date}</span>
-          </span>
+          </div>
         </div>
-        <span className="d-flex flex-column gap-1" >
-          <p className="d-flex align-items-start fw-bold amount">
+        <span className="d-flex flex-column gap-1 text-nowrap " >
+          <p className="d-flex align-items-start fw-bold amount ">
             {amount}
           </p>
           <p className="hidden">.</p>

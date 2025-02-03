@@ -1,28 +1,72 @@
 .main, .account, .line{
   padding: 30px 0 ;
 }
+
 .spacing{
   padding: 0px 80px;
 }
 .account h1 {
   font-size: 42px;
   font-weight: 800;
+  
+}
 
+.main-actions{
+  gap: 24px;
 }
 
 .actions{
   cursor: pointer;
 }
 
+.a-container{
+  justify-content: space-between!important;
+  gap: 2%;
+}
+
+.payments{
+  width: 50%;
+}
+.account-details{
+  width: 40%;
+  height: 100%;
+  align-self: flex-start;
+}
+.payments div{
+  width: max-content;
+  width: 100%;
+}
 .payment{
   width: 100%;
-  min-width: 500px;
+  /* min-width: 500px; */
   gap: 100px;
 }
+
 .hidden{
   color: var(--background-color);
 }
 
 .t-thin{
   font-size: 12px;
+}
+
+.visa-gold{
+  /* width: 410px; */
+  height: 110px;
+  background-color: #EBF0F0B2;
+  padding: 26px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.visa-gold .fw-bolder{
+  font-size: 18px;
+  font-weight: 900!important;
+}
+.card-infos{
+  width: 100%;
+}
+.details .border{
+  padding: 24px;
+  border-radius: 10px;
 }
