@@ -7,7 +7,7 @@ export default function App () {
 
   return (
     <>
-      <div className="account d-flex justify-content-between m-0 p-0 ">
+      <div className="account d-flex justify-content-between p-0 ">
         <Sidebar />
         <div className="d-flex w-100 flex-column position-relative">
           <Header />

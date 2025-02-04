@@ -103,29 +103,29 @@ export default function Main() {
               <div className="details mt-3 ">
                 <p className="gray " >Account Details</p>
                 <div className="border mt-3 p-4">
-                  <p className="d-flex justify-content-between ">
+                  <p className="d-flex justify-content-between p-2 gap-1 overflow-hidden ">
                     Account name
-                    <span className="fw-bold" >Premium Account</span>
+                    <span className="fw-bold " >Premium Account</span>
                   </p>
                   <hr />
-                  <p className="d-flex justify-content-between p-2 ">
+                  <p className="d-flex justify-content-between p-2 gap-1 overflow-hidden ">
                     Account number
-                    <span className="fw-bold" >UK64CT0000010034567</span>
+                    <span className="fw-bold " >UK64CT0000010034567</span>
                   </p>
                   <hr />
-                  <p className="d-flex justify-content-between p-2 ">
+                  <p className="d-flex justify-content-between p-2 gap-1 overflow-hidden ">
                     Account type
-                    <span className="fw-bold" >Single Currency</span>
+                    <span className="fw-bold " >Single Currency</span>
                   </p>
                   <hr />
-                  <p className="d-flex justify-content-between p-2 ">
+                  <p className="d-flex justify-content-between p-2 gap-1 overflow-hidden ">
                     Bonus programm
-                    <span className="fw-bold" >Premium</span>
+                    <span className="fw-bold " >Premium</span>
                   </p>
                   <hr />
-                  <p className="d-flex justify-content-between p-2 ">
+                  <p className="d-flex justify-content-between p-2 gap-1 overflow-hidden ">
                     Insurance
-                    <span className="fw-bold" >Enabled</span>
+                    <span className="fw-bold " >Enabled</span>
                   </p>
                 </div>
               </div>
