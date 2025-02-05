@@ -5,9 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build --output public",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "vite": {
+    "build": {
+      "outDir": "dist"
+    }
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
