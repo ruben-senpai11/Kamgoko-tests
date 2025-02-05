@@ -27,7 +27,7 @@ export default function Header() {
             <path d="M22.5664 16.5547L21.5117 15.5L17.0117 20L21.5117 24.5L22.5664 23.4453L19.1211 20L22.5664 16.5547Z" fill="currentColor" />
           </svg>
           <svg className="mobile" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_655_60)">
+            <g clipPath="url(#clip0_655_60)">
               <path d="M14.6094 3.24219L13.125 1.75781L4.88281 10L13.125 18.2422L14.6094 16.7578L7.8125 10L14.6094 3.24219Z" fill="currentColor" />
             </g>
             <defs>
