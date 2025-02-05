@@ -9,27 +9,12 @@ interface Props {
 
 export default function SplashScreen({ name, label, timer }: Props) {
 
-  const [showSplash, setShowSplash] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
   const contentRef = useRef(null);
 
   useEffect(() => {
 
     const timeout = setTimeout(() => setShowSplash(false), timer);
-
-      if (!sessionStorage.getItem('sessionInitialized')) {
-        setShowSplash(true);
-        
-      } else {
-        setShowSplash(false);
-      }
-      const handleUnload = () => sessionStorage.removeItem('sessionInitialized')
-
-      window.addEventListener("beforeunload", handleUnload);
-
-      return () => {
-        clearTimeout(timeout)
-        handleUnload
-      } 
 
 
   }, [timer]);
@@ -39,7 +24,7 @@ export default function SplashScreen({ name, label, timer }: Props) {
   return (
     <>
       {showSplash &&
-        <div ref={contentRef} className="splash-screen  w-100 h-100 ">
+        <div ref={contentRef} className="splash-screen d-flex w-100 h-100 ">
           <p className="font-normal d-flex gap-2 " >
             <img src={Logo} alt="PayApp Logo" />
             {name}

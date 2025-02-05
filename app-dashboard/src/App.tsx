@@ -4,10 +4,29 @@ import Footer from "./components/footer"
 import "./App.css"
 import Main from "./components/main"
 import SplashScreen from "./components/splashScreen"
+import { useEffect, useRef } from "react"
+import gsap from "gsap"
 export default function App() {
+/*
+  const boxRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem('sessionInitialized')) {
+      sessionStorage.setItem('sessionInitialized', 'true');
+
+      gsap.fromTo(
+        contentRef.current,
+        {  opacity: "0" },
+        {  opacity: "1", duration: 2, ease: "expo.out", delay: 3 }
+      );
+    }
+  }, []);
+  */
+
   return (
     <>
-      <SplashScreen name="PayApp" label="by Ruben Honfovou" timer={2000} />
+      <SplashScreen name="PayApp" label="by Ruben Honfovou" timer={1500} />
       <div className="account d-flex justify-content-between p-0 ">
         <Sidebar />
         <div className="d-flex w-100 flex-column position-relative">
