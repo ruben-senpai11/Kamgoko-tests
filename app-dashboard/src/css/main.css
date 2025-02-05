@@ -1,52 +1,58 @@
-.main, .account, .line{
-  padding: 30px 0 ;
+.main,
+.account,
+.line {
+  padding: 30px 0;
 }
 
-.spacing{
+.spacing {
   padding: 0px 80px;
 }
+
 .account h1 {
   font-size: 42px;
   font-weight: 800;
-  
+
 }
 
-.main-actions{
+.main-actions {
   gap: 24px;
 }
 
-.actions{
+.actions {
   cursor: pointer;
 }
 
-.a-container{
-  justify-content: space-between!important;
+.a-container {
+  justify-content: space-between !important;
   gap: 2%;
 }
 
-.payments{
+.payments {
   width: 50%;
 }
-.account-details{
+
+.account-details {
   width: 40%;
   height: 100%;
   align-self: flex-start;
 }
-.payments div{
+
+.payments div {
   width: max-content;
   width: 100%;
 }
-.payment{
+
+.payment {
   width: 100%;
   gap: 100px;
 }
 
 
-.t-thin{
+.t-thin {
   font-size: 12px;
 }
 
-.visa-gold{
+.visa-gold {
   /* width: 410px; */
   height: 110px;
   background-color: var(--gray);
@@ -55,56 +61,127 @@
   font-size: 14px;
 }
 
-.visa-gold .fw-bolder{
+.visa-gold .fw-bolder {
   font-size: 18px;
-  font-weight: 900!important;
+  font-weight: 900 !important;
 }
-.card-infos{
+
+.card-infos {
   width: 100%;
 }
-.details .border{
+
+.details .border {
   padding: 24px;
   border-radius: 10px;
 }
 
 @media screen and (max-width:900px) {
-  .main, .account, .spacingf{
+
+  .main,
+  .account,
+  .spacingf {
     padding: 0 25px;
   }
-  .main{
+
+  .main {
     padding-top: 25px;
   }
-  .spacing{
+
+  .spacing {
     padding: 0;
   }
-  .account h1{
+
+  .account h1 {
     font-size: 34px;
   }
-  .line{
-    display: none!important;
+
+  .line {
+    display: none !important;
   }
-  .a-container{
+
+  .mobile-account {
+    background-color: var(--background-color);
+    border-radius: 8px;
+  }
+
+  .visa-gold {
+    padding: 24px;
+  }
+
+  hr.d-flex {
+    margin: 0;
+    padding: 0;
+  }
+
+  .account-button {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .a-container {
     flex-direction: column-reverse;
-    gap: 70px;
-    padding-top: 20px;
+    gap: 34px;
+    padding-bottom: 20px;
   }
-  .account-details{
+
+  .a-container h2 {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+  }
+
+  .label {
+    font-weight: 700;
+  }
+
+  .account-details {
     width: 100%;
   }
 
-  .payments, .details{
+  .payments,
+  .details {
     width: 100%;
   }
-  .payment{
+
+  .payment {
     margin: 3px 0;
     padding: 10px 15px;
     border-radius: 8px;
   }
 
-  .visa-gold, .payment, .details{
+  .visa-gold,
+  .payment,
+  .details {
     background-color: var(--background-color);
   }
-  .details{
-    display: none;
+
+  .mobile.details {
+    padding-bottom: 20px;
+    position: fixed;
+    width: 100%;
+    height: max-content;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: all 1s;
   }
+
+  .mobile.details div {
+    width: 100%;
+  }
+
+  .mobile.details div p {
+    margin: 0 auto !important;
+  }
+
+  .mobile.details .details-info hr{
+    border: 1px solid #CFDBD5!important;
+  }
+  .update {
+    padding: 15px 90px;
+    border: 1px solid #CFDBD5;
+    border-radius: 8px;
+  }
+
 }

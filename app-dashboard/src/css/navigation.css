@@ -85,8 +85,33 @@ p{
     right: 25px;
   }
 
-
-  .search, .search-icon, .notifications, .footer{
+  .search, .search-icon, .notifications, .footerr{
     display: none!important;
+  }
+
+  .nav.mobile{
+    background-color: var(--background-color);
+  }
+  .nav button.primary{
+    width: 52px;
+    height: 52px;
+    background-color: #0052FF;
+    color: var(--background-color);
+    border-radius: 8px;
+  }
+  .footer .nav{
+    padding: 12px 25px;
+    color: var(--foreground-color)!important;
+  }
+  .mobile-theme{
+    /* padding: 10px; */
+    position: absolute;
+    bottom: 53px;
+    right: 12px;
+    width: max-content;
+    height: max-content;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: #CFDBD5;
   }
 }

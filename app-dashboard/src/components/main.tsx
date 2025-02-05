@@ -1,17 +1,53 @@
+import { useEffect, useRef, useState } from "react"
 import "../css/main.css"
 import Payment from "./payment"
 import Card from "../assets/Card"
 
 export default function Main() {
 
+  const [accountVisible, setAccountVisible] = useState(false)
+
+  const handleAccount = () => {
+    setAccountVisible(!accountVisible)
+  }
+
+  const accountRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (accountRef.current && !accountRef.current.contains(event.target)) {
+        setAccountVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Toggle visibility after 1 second (just as an example)
+    setTimeout(() => {
+      setIsVisible(true);
+    }, 1000);
+
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 4000);
+  }, []);
+
   return (
     <>
-      <div className="main ">
+      <div className="main position-relative ">
         <div className="account spacing">
           <h1>$120,420.50</h1>
           <p className="gray">Account **** 4567</p>
         </div>
-        <div className=" d-flex flex-column gap-0 mt-0 mt-lg-4 ">
+        <div className="d-flex flex-column gap-0 mt-0 mt-lg-4 ">
           <div className="line spacing d-flex align-items-center justify-content-between gap-2 ">
             <div className="d-flex align-items-center justify-content-between main-actions ">
               <p className="d-flex align-items-center justify-content-between gap-2 actions fw-bold ">
@@ -57,6 +93,7 @@ export default function Main() {
           <hr />
           <div className="spacing a-container d-flex align-items-center justify-content-between w-100 mt-4 ">
             <div className="d-flex payments flex-column gap-2 ">
+              <h2 className="mobile">Latest transactions</h2>
               <p className="gray" >28 August</p>
               <div className="d-flex flex-column gap-0 w-100 ">
                 <Payment label="Online purchase at Ebay.com" date="28 Aug, 3:00 PM" amount="- $10.480,00" />
@@ -67,7 +104,7 @@ export default function Main() {
                 <hr />
                 {/* <Payment label="Online purchase at Ebay.com" date="28 Aug, 3:00 PM" amount="- $10.480,00" /> */}
               </div>
-              <p className="gray mt-4" >24 August</p>
+              <p className="gray mt-2 mt-lg-4" >24 August</p>
               <div className="d-flex flex-column gap-0 ">
                 <Payment label="Income payment for projects" date="28 Aug, 3:00 PM" amount="+ $3.000,00" />
                 <hr />
@@ -83,18 +120,27 @@ export default function Main() {
               </div>
             </div>
             <div className="account-details d-flex flex-column gap-4 justify-content-start ">
-              <p className="gray" >Linked card</p>
-              <div className="visa-gold d-flex gap-3">
-                <Card />
-                <div className="d-flex flex-column justify-content-between card-infos ">
-                  <p className="fw-bolder">Visa Gold Paywave</p>
-                  <p className="gray w-100 d-flex justify-content-between flex-shrink-1 lh-lg ">
-                    <span>**** 8790</span>
-                    <span>03/22</span>
-                  </p>
+              <p className="desktop gray" >Linked card</p>
+              <div className="mobile-account d-flex flex-column gap-">
+                <div className="visa-gold d-flex gap-3">
+                  <Card />
+                  <div className="d-flex flex-column justify-content-between card-infos ">
+                    <p className="fw-bolder">Visa Gold Paywave</p>
+                    <p className="gray w-100 d-flex justify-content-between flex-shrink-1 lh-lg ">
+                      <span>**** 8790</span>
+                      <span className="desktop" >03/22</span>
+                    </p>
+                  </div>
                 </div>
+                <hr className="d-flex mobile" />
+                <button onClick={handleAccount} className="d-flex mobile account-button justify-content-center gap-2 ">
+                  <svg width="18" height="18" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.625 1.13672L11.5 0.0117188L10.375 1.13672L9.25 0.0117188L8.125 1.13672L7 0.0117188L5.875 1.13672L4.75 0.0117188L3.625 1.13672L2.5 0.0117188V10.4883H0.25V12.7383C0.25 14.0039 1.26953 14.9883 2.5 14.9883H11.5C12.7305 14.9883 13.75 14.0039 13.75 12.7383V0.0117188L12.625 1.13672ZM9.25 13.5117H2.5C2.07812 13.5117 1.76172 13.1602 1.76172 12.7383V12H9.25V13.5117ZM12.2383 12.7383C12.2383 13.1602 11.9219 13.5117 11.5 13.5117C11.0781 13.5117 10.7617 13.1602 10.7617 12.7383V10.4883H4.01172V2.26172H12.2383V12.7383ZM4.75 3.73828H9.25V5.25H4.75V3.73828ZM9.98828 3.73828H11.5V5.25H9.98828V3.73828ZM4.75 5.98828H9.25V7.5H4.75V5.98828ZM9.98828 5.98828H11.5V7.5H9.98828V5.98828Z" fill="black" />
+                  </svg>
+                  <div className="fw-bold" >See account details</div>
+                </button>
               </div>
-              <div className="details mt-3 ">
+              <div className="details desktop mt-3 ">
                 <p className="gray " >Account Details</p>
                 <div className="border mt-3 p-4">
                   <p className="d-flex justify-content-between p-2 gap-1 overflow-hidden ">
@@ -126,6 +172,52 @@ export default function Main() {
             </div>
           </div>
         </div>
+
+        {accountVisible &&
+          <div ref={accountRef}  className={`slide-in-out details d-flex flex-column justify-content-between gap-2 mobile  ${isVisible ? 'show' : ''}`}>
+            <div className="d-flex justify-content-center align-items-center p-4 pb-0 ">
+              <svg className="rectangle" width="32" height="6" viewBox="0 0 32 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="6" rx="3" fill="#CFDBD5" />
+              </svg>
+            </div>
+            <p className="p-4 py-3 fw-bolder " >Account Details</p>
+            <hr className="d-flex" />
+            <div className="p-4 py-3 details-info ">
+              <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
+                Account name
+                <span className="fw-bold " >Premium Account</span>
+              </p>
+              <hr className="d-flex" />
+              <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
+                Account number
+                <span className="fw-bold " >UK64CT0000010034567</span>
+              </p>
+              <hr className="d-flex" />
+              <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
+                Account type
+                <span className="fw-bold " >Single Currency</span>
+              </p>
+              <hr className="d-flex" />
+              <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
+                Bonus programm
+                <span className="fw-bold " >Premium</span>
+              </p>
+              <hr className="d-flex" />
+              <p className="d-flex justify-content-between py-3 pb-0 gap-1 overflow-hidden ">
+                Insurance
+                <span className="fw-bold " >Enabled</span>
+              </p>
+            </div>
+            <div className="d-flex justify-content-center align-items-center   ">
+              <button className="d-flex justify-content-center align-items-center gap-2 update ">
+                <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.67188 3.64844L6.26172 0.238281V2.55859C3.30859 2.91016 0.988281 5.44141 0.988281 8.5C0.988281 11.5586 3.27344 14.0898 6.26172 14.4414V12.9297C4.11719 12.5781 2.5 10.7148 2.5 8.5C2.5 6.28516 4.11719 4.42188 6.26172 4.07031V6.98828L9.67188 3.64844ZM12.9414 7.76172C12.8359 6.70703 12.4141 5.6875 11.7461 4.84375L10.6562 5.89844C11.0781 6.46094 11.3242 7.09375 11.4297 7.76172H12.9414ZM7.73828 12.9297V14.4414C8.79297 14.3008 9.8125 13.9141 10.6914 13.2461L9.60156 12.1562C9.03906 12.543 8.40625 12.8242 7.73828 12.9297ZM10.6562 11.1016L11.7461 12.1562C12.4141 11.3125 12.8359 10.293 12.9414 9.23828H11.4297C11.3242 9.90625 11.0781 10.5391 10.6562 11.1016Z" fill="black" />
+                </svg>
+                <span className="fw-bold" >Update your details</span>
+              </button>
+            </div>
+          </div>
+        }
       </div>
     </>
   )

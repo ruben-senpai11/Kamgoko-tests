@@ -22,7 +22,7 @@ export default function Payment({ label, date, amount }: Props) {
           </svg>
           </span>
           <div className="">
-            <span className="d-flex flex-column gap-1" >
+            <span className="d-flex flex-column gap-1 label " >
               {label}
             </span>
             <span className="gray t-thin">{date}</span>
