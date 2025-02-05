@@ -187,13 +187,15 @@
     position: fixed;
     width: 100%;
     height: max-content;
-    bottom: 10px;
+    bottom: -310px;
     left: 0;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     z-index: 999;
     transform: translateY(0);
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); */
+
+    transition: all .4s linear;
   }  
   .mobile.details.show {
     transform: translateY(100%);
