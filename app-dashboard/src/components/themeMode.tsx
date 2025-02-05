@@ -3,7 +3,7 @@ import "../css/themeMode.css"
 
 export default function Theme() {
   const [theme, setTheme] = useState<string>(
-    localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "dark")
+    localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
   );
 
   useEffect(() => {
