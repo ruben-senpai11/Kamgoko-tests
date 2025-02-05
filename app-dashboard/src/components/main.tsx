@@ -13,11 +13,11 @@ export default function Main() {
     setAccountVisible(!accountVisible)
   }
 
-  const accountRef = useRef(null);
+  const accountRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
-      if (accountRef.current && !accountRef.current.contains(event.target)) {
+      if (accountRef.current && !accountRef.current.contains(event.target as Node )) {
         setAccountVisible(false);
       }
     };

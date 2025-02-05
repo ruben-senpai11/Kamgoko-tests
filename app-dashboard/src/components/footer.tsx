@@ -9,7 +9,7 @@ export default function Footer() {
   const handleTheme = () => {
     setThemeVisible(!themeVisible)
   }
-  const themeRef = useRef(null);
+  const themeRef = useRef<HTMLDivElement | null>(null);
   
   useEffect(() => {
     const handleClickOutside = (event:any) => {

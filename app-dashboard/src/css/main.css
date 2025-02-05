@@ -156,8 +156,8 @@
   }
 
   .overlay{
-    min-width: 100vh;
-    min-height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
     display: flex;
     align-items: flex-end;
     position: fixed;
@@ -165,19 +165,12 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #00000055;
+    background-color: #000000da;
+    backdrop-filter: blur(4.87px);
     z-index: 99;
   }
   #container{    
     width: max-content;
-    /* height: 500px;
-    position: fixed;
-    bottom: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0; */
-    /* border: 10px solid green; */
     z-index: 9999;
     align-self: flex-end;
     padding-top: 200px;
