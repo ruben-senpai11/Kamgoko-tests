@@ -2,9 +2,6 @@
   padding: 20px 80px;
   margin: 0!important;
 }
-.nav.footer{
-  /* padding-bottom: 0; */
-}
 p{
   margin: 0!important;
 }
@@ -19,10 +16,16 @@ p{
 }
 
 .search[type="text"] {
-  background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M10.9297 9.67969H10.2656L10.0312 9.44531C10.8516 8.50781 11.3203 7.25781 11.3203 5.92969C11.3203 2.92188 8.89844 0.5 5.92969 0.5C2.92188 0.5 0.5 2.92188 0.5 5.92969C0.5 8.89844 2.92188 11.3203 5.92969 11.3203C7.25781 11.3203 8.50781 10.8516 9.44531 10.0312L9.67969 10.2656V10.9297L13.8203 15.0703L15.0703 13.8203L10.9297 9.67969ZM5.92969 9.67969C3.85938 9.67969 2.17969 8 2.17969 5.92969C2.17969 3.85938 3.85938 2.17969 5.92969 2.17969C8 2.17969 9.67969 3.85938 9.67969 5.92969C9.67969 8 8 9.67969 5.92969 9.67969Z" fill="black"/></svg>')
-    no-repeat left center;
-  background-size: 1rem;
-  padding-left: 2rem;
+  color: var(--foreground-color);
+  background-color: var(--background-color);
+}
+.search[type="text"]::placeholder {
+  /* color: var(--foreground-color); */
+  padding-left: 2.5rem;
+}
+.search-icon{
+  top: 8px;
+  left: 1rem;
 }
 
 .links, .env{
@@ -46,8 +49,44 @@ p{
   gap: 10px;
 }
 
+
 @media screen and (max-width:1050px) {
   .nav{
     padding: 20px 40px;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .header{
+    padding: 10px 25px;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #CFDBD5;
+    /* height: 32px; */
+  }
+  .header .gap-4{
+    gap: 5px!important;
+  }
+  .will-center{
+    width: 100%;
+    width: calc(100% - 30px );
+    height: 32px;
+  }
+  .title{
+    font-weight: 800!important;
+    font-size: 18px!important;
+  }
+  .profile-picture{
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: calc(70px-16px);
+    right: 25px;
+  }
+
+
+  .search, .search-icon, .notifications, .footer{
+    display: none!important;
   }
 }

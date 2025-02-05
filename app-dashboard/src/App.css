@@ -1,14 +1,14 @@
 :root {
   --foreground-color: #000000;
-  --background-color: #fafafa;
-  --gray: #EBF0F002;
+  --background-color: #fff;
+  --gray: #EBF0F0;
   --dark-gray: #747A80;
 }
 
 [ data-theme="dark"] {
   --foreground-color: white;
-  --background-color: #1a1a1a;
-  --gray: #000;
+  --background-color: #000;
+  --gray: #1a1a1a;
   --dark-gray: #999;
 }
 
@@ -53,10 +53,30 @@ body {
   gap: 0;
 }
 
-@media screen and (max-width: 1440px) {
-  .account {}
+.hidden{
+  color: var(--background-color);
 }
 
 hr{
   margin: 7px 0 12px 0;
+}
+
+.mobile{
+  display: none!important;
+}
+
+@media screen and (max-width: 900px) {
+  body{
+    background-color: var(--gray);
+    font-size: 14px!important;
+  }
+  .desktop, hr{
+    display: none!important;
+  }  
+  .mobile{
+    display: flex!important;
+  }
+  .hidden{
+    color: var(--gray);
+  }
 }

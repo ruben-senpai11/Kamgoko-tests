@@ -29,7 +29,7 @@ export default function Theme() {
 
   return (
     <>
-      <div className="theme" onClick={() => handleTheme()}>
+      <div className="theme d-flex justify-content-between flex-nowrap" onClick={() => handleTheme()}>
         {theme == "light" &&
           <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.5" y="0.5" width="45" height="45" rx="7.5" stroke="#CFDBD5" strokeOpacity="0.7" strokeLinecap="square" />

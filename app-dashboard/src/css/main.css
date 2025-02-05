@@ -41,9 +41,6 @@
   gap: 100px;
 }
 
-.hidden{
-  color: var(--background-color);
-}
 
 .t-thin{
   font-size: 12px;
@@ -70,12 +67,44 @@
   border-radius: 10px;
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:900px) {
+  .main, .account, .spacingf{
+    padding: 0 25px;
+  }
+  .main{
+    padding-top: 25px;
+  }
+  .spacing{
+    padding: 0;
+  }
+  .account h1{
+    font-size: 34px;
+  }
+  .line{
+    display: none!important;
+  }
   .a-container{
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 70px;
+    padding-top: 20px;
+  }
+  .account-details{
+    width: 100%;
   }
 
   .payments, .details{
     width: 100%;
+  }
+  .payment{
+    margin: 3px 0;
+    padding: 10px 15px;
+    border-radius: 8px;
+  }
+
+  .visa-gold, .payment, .details{
+    background-color: var(--background-color);
+  }
+  .details{
+    display: none;
   }
 }
