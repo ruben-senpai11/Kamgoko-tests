@@ -13,10 +13,7 @@ export default function SplashScreen({ name, label, timer }: Props) {
   const contentRef = useRef(null);
 
   useEffect(() => {
-
-    const timeout = setTimeout(() => setShowSplash(false), timer);
-
-
+    setTimeout(() => setShowSplash(false), timer);
   }, [timer]);
 
 

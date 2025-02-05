@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <>
-      <SplashScreen name="PayApp" label="by Ruben Honfovou" timer={1500} />
+      <SplashScreen name="PayApp" label="by Ruben Honfovou" timer={2000} />
       <div className="account d-flex justify-content-between p-0 ">
         <Sidebar />
         <div className="d-flex w-100 flex-column position-relative">
