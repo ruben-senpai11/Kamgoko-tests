@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react"
 import "../css/main.css"
 import Payment from "./payment"
 import Card from "../assets/Card"
+import gsap from "gsap"
+import Draggable from "gsap/Draggable"
 
 export default function Main() {
 
@@ -27,17 +29,26 @@ export default function Main() {
     };
   }, []);
 
-  const [isVisible, setIsVisible] = useState(false);
+  gsap.registerPlugin(Draggable);
 
   useEffect(() => {
-    // Toggle visibility after 1 second (just as an example)
-    setTimeout(() => {
-      setIsVisible(true);
-    }, 1000);
+    // Ensure Draggable is created after the component mounts
+    Draggable.create("#draggable", {
+      type: "y",
+      bounds: "#container",
+      inertia: true,
+      onClick: function () {
+        console.log("clicked");
+      },
+      onDragEnd: function () {
+        console.log("drag ended");
+      },
+    });
 
-    setTimeout(() => {
-      setIsVisible(false);
-    }, 4000);
+    // Cleanup on unmount
+    return () => {
+      Draggable.get("#draggable")?.kill();
+    };
   }, []);
 
   return (
@@ -173,51 +184,55 @@ export default function Main() {
           </div>
         </div>
 
-        {accountVisible &&
-          <div ref={accountRef}  className={`slide-in-out details d-flex flex-column justify-content-between gap-2 mobile  ${isVisible ? 'show' : ''}`}>
-            <div className="d-flex justify-content-center align-items-center p-4 pb-0 ">
-              <svg className="rectangle" width="32" height="6" viewBox="0 0 32 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="6" rx="3" fill="#CFDBD5" />
-              </svg>
-            </div>
-            <p className="p-4 py-3 fw-bolder " >Account Details</p>
-            <hr className="d-flex" />
-            <div className="p-4 py-3 details-info ">
-              <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
-                Account name
-                <span className="fw-bold " >Premium Account</span>
-              </p>
-              <hr className="d-flex" />
-              <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
-                Account number
-                <span className="fw-bold " >UK64CT0000010034567</span>
-              </p>
-              <hr className="d-flex" />
-              <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
-                Account type
-                <span className="fw-bold " >Single Currency</span>
-              </p>
-              <hr className="d-flex" />
-              <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
-                Bonus programm
-                <span className="fw-bold " >Premium</span>
-              </p>
-              <hr className="d-flex" />
-              <p className="d-flex justify-content-between py-3 pb-0 gap-1 overflow-hidden ">
-                Insurance
-                <span className="fw-bold " >Enabled</span>
-              </p>
-            </div>
-            <div className="d-flex justify-content-center align-items-center   ">
-              <button className="d-flex justify-content-center align-items-center gap-2 update ">
-                <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.67188 3.64844L6.26172 0.238281V2.55859C3.30859 2.91016 0.988281 5.44141 0.988281 8.5C0.988281 11.5586 3.27344 14.0898 6.26172 14.4414V12.9297C4.11719 12.5781 2.5 10.7148 2.5 8.5C2.5 6.28516 4.11719 4.42188 6.26172 4.07031V6.98828L9.67188 3.64844ZM12.9414 7.76172C12.8359 6.70703 12.4141 5.6875 11.7461 4.84375L10.6562 5.89844C11.0781 6.46094 11.3242 7.09375 11.4297 7.76172H12.9414ZM7.73828 12.9297V14.4414C8.79297 14.3008 9.8125 13.9141 10.6914 13.2461L9.60156 12.1562C9.03906 12.543 8.40625 12.8242 7.73828 12.9297ZM10.6562 11.1016L11.7461 12.1562C12.4141 11.3125 12.8359 10.293 12.9414 9.23828H11.4297C11.3242 9.90625 11.0781 10.5391 10.6562 11.1016Z" fill="black" />
-                </svg>
-                <span className="fw-bold" >Update your details</span>
-              </button>
+        {/* {accountVisible && */}
+          <div className={"overlay " + ( accountVisible ? "d-flex" : "d-none" )} >
+            <div id="container" className="">
+              <div ref={accountRef} id="draggable" className={"details d-flex flex-column justify-content-between gap-2 mobile " + ( accountVisible ? "show" : "hide" )}>
+                <div className="d-flex justify-content-center align-items-center p-4 pb-0 ">
+                  <svg className="rectangle" width="32" height="6" viewBox="0 0 32 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="6" rx="3" fill="#CFDBD5" />
+                  </svg>
+                </div>
+                <p className="p-4 py-3 fw-bolder " >Account Details</p>
+                <hr className="d-flex" />
+                <div className="p-4 py-3 details-info ">
+                  <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
+                    Account name
+                    <span className="fw-bold " >Premium Account</span>
+                  </p>
+                  <hr className="d-flex" />
+                  <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
+                    Account number
+                    <span className="fw-bold " >UK64CT0000010034567</span>
+                  </p>
+                  <hr className="d-flex" />
+                  <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
+                    Account type
+                    <span className="fw-bold " >Single Currency</span>
+                  </p>
+                  <hr className="d-flex" />
+                  <p className="d-flex justify-content-between py-3 gap-1 overflow-hidden ">
+                    Bonus programm
+                    <span className="fw-bold " >Premium</span>
+                  </p>
+                  <hr className="d-flex" />
+                  <p className="d-flex justify-content-between py-3 pb-0 gap-1 overflow-hidden ">
+                    Insurance
+                    <span className="fw-bold " >Enabled</span>
+                  </p>
+                </div>
+                <div className="d-flex justify-content-center align-items-center   ">
+                  <button className="d-flex justify-content-center align-items-center gap-2 update ">
+                    <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.67188 3.64844L6.26172 0.238281V2.55859C3.30859 2.91016 0.988281 5.44141 0.988281 8.5C0.988281 11.5586 3.27344 14.0898 6.26172 14.4414V12.9297C4.11719 12.5781 2.5 10.7148 2.5 8.5C2.5 6.28516 4.11719 4.42188 6.26172 4.07031V6.98828L9.67188 3.64844ZM12.9414 7.76172C12.8359 6.70703 12.4141 5.6875 11.7461 4.84375L10.6562 5.89844C11.0781 6.46094 11.3242 7.09375 11.4297 7.76172H12.9414ZM7.73828 12.9297V14.4414C8.79297 14.3008 9.8125 13.9141 10.6914 13.2461L9.60156 12.1562C9.03906 12.543 8.40625 12.8242 7.73828 12.9297ZM10.6562 11.1016L11.7461 12.1562C12.4141 11.3125 12.8359 10.293 12.9414 9.23828H11.4297C11.3242 9.90625 11.0781 10.5391 10.6562 11.1016Z" fill="black" />
+                    </svg>
+                    <span className="fw-bold" >Update your details</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        }
+        {/* } */}
       </div>
     </>
   )
