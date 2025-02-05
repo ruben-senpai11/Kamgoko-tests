@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "../assets/logo.svg"
 
 interface Props {
@@ -10,16 +10,15 @@ interface Props {
 export default function SplashScreen({ name, label, timer }: Props) {
 
   const [showSplash, setShowSplash] = useState(false);
-
+  const contentRef = useRef(null);
 
   useEffect(() => {
 
     const timeout = setTimeout(() => setShowSplash(false), timer);
 
-    if (typeof window !== undefined) {
-
       if (!sessionStorage.getItem('sessionInitialized')) {
         setShowSplash(true);
+        
       } else {
         setShowSplash(false);
       }
@@ -32,7 +31,6 @@ export default function SplashScreen({ name, label, timer }: Props) {
         handleUnload
       } 
 
-    }
 
   }, [timer]);
 
@@ -41,15 +39,13 @@ export default function SplashScreen({ name, label, timer }: Props) {
   return (
     <>
       {showSplash &&
-
-        <div className="splash-screen  w-100 h-100 ">
+        <div ref={contentRef} className="splash-screen  w-100 h-100 ">
           <p className="font-normal d-flex gap-2 " >
             <img src={Logo} alt="PayApp Logo" />
             {name}
             <span className="font-thin">{label}</span>
           </p>
         </div>
-
       }
     </>
   )
