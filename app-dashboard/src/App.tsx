@@ -4,8 +4,6 @@ import Footer from "./components/footer"
 import "./App.css"
 import Main from "./components/main"
 import SplashScreen from "./components/splashScreen"
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
 export default function App() {
 /*
   const boxRef = useRef(null);
